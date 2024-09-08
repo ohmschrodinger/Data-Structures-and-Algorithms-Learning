@@ -52,8 +52,6 @@ void quick_sort(int arr[] , int low, int high)
 
 }
 
-
-
 int main()
 {
     int arr[10] = {2,4,3,9,1,4,8,7,5,6};
