@@ -13,11 +13,7 @@ void traversal(struct Node* ptr)
     }
 }
 
-void insert_begining(struct Node* ptr, struct Node* head)
-{
-    ptr -> next = head;
-    head = ptr;
-}
+
 
 struct Node* insert_First(struct Node* head, int n)
 {
