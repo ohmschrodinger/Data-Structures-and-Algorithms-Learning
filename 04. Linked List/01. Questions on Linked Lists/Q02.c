@@ -54,7 +54,7 @@ struct Node* insert_end(struct Node* head, int n)
 int main()
 {
     struct Node* head = NULL;
-
+    head = insert_end(head,20020);
     head = insert_beg(head, 100);
     printf("%d ", head -> data);
     head = insert_beg(head, 200);
