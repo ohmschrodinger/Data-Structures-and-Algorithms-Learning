@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struck stack{
+struct stack{
     int size;
     int top;
     int* arr;
@@ -18,7 +18,7 @@ int main()
 
     // method 2
 
-    struck stack* s;
+    struct stack* s;
     s -> size = 50;
     s -> top = -1;
     s -> arr = (int *) malloc(s -> size * sizeof(int));
