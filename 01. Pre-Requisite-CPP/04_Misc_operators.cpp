@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
@@ -36,5 +37,16 @@ int main()
     //  & operator : gives the address of a variable
 
     // * operator : pointers
+
+
+
+    // floor and ceil
+    // floor(a) gives the GIF of a
+    // ceil(a) gives GIF + 1 of a
+
+    // ex
+    float pi = 3.14;
+    cout<<"Floor: "<<floor(pi)<<"\nCeil: "<<ceil(pi)<<endl;
+    // NOTE- cmath library should be included for using ceil
     return 0;
 }
