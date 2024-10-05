@@ -31,5 +31,23 @@ int main()
         m++;
         
     }
+
+    //taking input from array
+
+    int arr2[5];
+
+    size = 5;
+    cout<<"\nEnter Elements:";
+    for(int i =0 ; i< size ; i++)
+    {
+        cin>>arr2[i];
+    }
+
+    // method 2: for each loop
+    // for(int &x:arr2)
+    // {
+    //     cin>>x;
+    // }
+ 
     return 0;
 }
