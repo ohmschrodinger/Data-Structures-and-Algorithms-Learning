@@ -30,42 +30,16 @@ struct Node* insert_node(struct Node* root , int n)
 }
 
 
-void inorder_traversal(struct Node* root)
+int search_minimum(struct Node* root)
 {
-    if(root == NULL)
+    struct Node* temp = root;
+    while(temp != NULL && temp-> left != NULL)
     {
-        return;
+        temp = temp -> left;
     }
 
-    inorder_traversal(root->left);
-    printf("%d ", root->data);
-    inorder_traversal(root->right);
-    
-    return;
+    return temp-> data;
 }
-
-int search_node(struct Node* root, int n)
-{
-    if (root == NULL)
-    {
-        return -1;
-    }
-    if (root->data == n)
-    {
-        return 1;
-    }
-    if (n > root->data)
-    {
-        return search_node(root->right, n);
-    }
-
-    else if(n<root->data)
-    {
-        return search_node(root->left, n);   
-    }
-}
-
-
 
 
 int main()
@@ -77,16 +51,8 @@ int main()
     {
         root = insert_node(root, arr[i]); 
     }
-
-    inorder_traversal(root);
-    printf("\n");
-    // delete_node(root, 1);
-    // inorder_traversal(root);
-    // printf("\n");
-
-    int result =  search_node(root , 5);
+    int result = search_minimum(root);
     printf("%d", result);
 
-    
     return 0;
 }
