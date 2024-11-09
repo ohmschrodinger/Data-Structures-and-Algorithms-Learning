@@ -8,24 +8,22 @@ void swap(int* x, int* y)
     *y = temp;
 }
 
-void bubble_sort(int* arr, int n)
+void selection_sort(int* arr, int n)
 {
-    bool flag = true;
-    for(int i= 0; i < n-1; i++)
+    for(int i = 0; i< n-1; i++)
     {
-        for(int j= 0; j < n-i-1; j++)
-    {
-        if(arr[j] > arr[j+1])
+        int min_index = i;
+        for(int j = i+1; j< n; j++)
         {
-            swap(&arr[j], &arr[j+1]);
-            flag = false;
+            if(arr[j] < arr[min_index])
+            {
+                min_index = j;
+            }
         }
-    }
-
-    if(flag == true)
-    {
-        return;
-    }
+        if(min_index!=i)
+        {
+        swap(&arr[i], &arr[min_index]);
+        }
     }
 }
 
@@ -38,8 +36,7 @@ int main()
     {
         printf("%d ", arr[i]);
     }
-
-    bubble_sort(x,5);
+    selection_sort(x,5);
     printf("\nAfter sorting: ");
     for(int i=0; i< 5; i++)
     {
