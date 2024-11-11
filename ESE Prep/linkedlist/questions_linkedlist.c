@@ -322,32 +322,108 @@ int find_nth_node_from_end(struct Node* head, int n)
     return p-> data;
 }
 
+
+struct Node* remove_duplicates(struct Node* head)
+{
+    struct Node* p = head;
+    struct Node* q = head -> next;
+
+    while(q -> next != NULL)
+    {
+        if(p->data == q-> data)
+        {
+            head = delete_value(head, p-> data);
+            head = remove_duplicates(head);
+        }
+        p = p-> next;
+        q = q-> next;
+    }
+return head;
+
+}
+
+// ALTERNATE METHOD
+struct Node* remove_duplicate(struct Node* head) {
+    struct Node* current = head;
+
+    while (current != NULL && current->next != NULL) {
+        if (current->data == current->next->data) {
+            struct Node* duplicate = current->next;
+            current->next = current->next->next;
+            free(duplicate);
+        } else {
+            current = current->next;
+        }
+    }
+    return head;
+}
+
+struct Node* remove_duplicates_unsorted(struct Node* head)
+{
+    struct Node* p = head;
+    while(p!= NULL &&  p-> next != NULL)
+    {
+        struct Node* q = p;
+        while(q-> next != NULL && q!=NULL)
+        {
+            if(q-> next -> data == p-> data)
+            {
+                struct Node* temp = q-> next;
+                q -> next = temp -> next;
+                free(temp);
+            }
+
+            else{
+                q = q-> next;
+            }
+        }
+        p = p-> next;
+    }
+    return head;
+}
+
 int main()
 {
     struct Node* head = NULL;
-    head = insert_end(head, 10);
-    head = insert_end(head, 20);
-    head = insert_end(head, 30);
-    head = insert_beg(head, 10);
-    head = insert_beg(head, 20);
-    head = insert_beg(head, 30);
-    head = insert_index(head,100,2);
-    head = delete_first(head);
-    head = delete_last(head);
+    // head = insert_end(head, 10);
+    // head = insert_end(head, 20);
+    // head = insert_end(head, 30);
+    // head = insert_beg(head, 10);
+    // head = insert_beg(head, 20);
+    // head = insert_beg(head, 30);
+    // head = insert_index(head,100,2);
+    // head = delete_first(head);
+    // head = delete_last(head);
     // head = delete_value(head, 300);
-    head = delete_value(head,10);
-    head = insert_end(head,300);
-    traversal(head);
+    // head = delete_value(head,10);
+    // head = insert_end(head,300);
+    // traversal(head);
     // int result = search_node_index(head,4);
-    head = reverse_list(head);
-    traversal(head);
+    // head = reverse_list(head);
+    // traversal(head);
     // int result = find_length(head);
     // head = insert_end_circular(head,600);
     // int result = is_circular(head);
     // traversal_circular(head);
-    head = insert_end(head,1000);
+    // head = insert_end(head,1000);
+    // traversal(head);
+    // int result = find_nth_node_from_end(head,4);
+    // printf("%d\n", result);
+
+    head = insert_end(head,10);
+    head = insert_end(head,40);
+    head = insert_end(head,20);
+    head = insert_end(head,30);
+    head = insert_end(head,60);
+    head = insert_end(head,20);
+    head = insert_end(head,40);
+    head = insert_end(head,90);
+    head = insert_end(head,60);
+    head = insert_end(head,80);
+    head = insert_end(head,60);
+    head = insert_end(head,50);
     traversal(head);
-    int result = find_nth_node_from_end(head,4);
-    printf("%d\n", result);
+    head = remove_duplicates_unsorted(head);
+    traversal(head);
     return 0;
 }
