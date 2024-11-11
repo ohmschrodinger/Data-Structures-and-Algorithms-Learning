@@ -382,6 +382,46 @@ struct Node* remove_duplicates_unsorted(struct Node* head)
     return head;
 }
 
+void split_list(struct Node* head, struct Node** first_half, struct Node** second_half)
+{
+    struct Node* p = head;
+    struct Node* q = head -> next;
+    while(q!= NULL && q-> next != NULL)
+    {
+        q = q-> next -> next;
+        p = p-> next;
+    }
+
+    *first_half = head;
+    *second_half = p -> next;
+    p -> next = NULL;
+}
+
+void swap_nodes(struct Node* head, int first, int second)
+{
+        struct Node* p = head;
+        struct Node* q = head;
+        int i = 0, j = 0;
+        while(i<first)
+        {
+            p = p-> next;
+        }
+        while(j<second)
+        {
+            q = q-> next;
+        }
+
+        struct Node** p_pointer = &p;
+        struct Node** q_pointer = &q;
+
+        struct Node** temp;
+
+        // *temp = **p;
+        // **p = **q;
+        // **q = *temp;
+}
+
+
 int main()
 {
     struct Node* head = NULL;
@@ -422,8 +462,21 @@ int main()
     head = insert_end(head,80);
     head = insert_end(head,60);
     head = insert_end(head,50);
-    traversal(head);
+    // traversal(head);
     head = remove_duplicates_unsorted(head);
     traversal(head);
+
+    // struct Node* first_half = NULL;
+    // struct Node* second_half = NULL;
+    // struct Node** idk = &first_half;
+    // split_list(head, idk, &second_half);
+    // traversal(first_half);
+    // traversal(second_half);
+
+    
     return 0;
 }
+
+
+
+// 24
