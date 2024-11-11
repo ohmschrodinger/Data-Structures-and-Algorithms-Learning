@@ -42,9 +42,17 @@ struct Node* insert_end(struct Node* head, int n)
 
 struct Node* reverse_list(struct Node* head)
 {
-    struct Node* p = head;
-    struct Node* q = head;  
-
+  struct Node* prev = NULL;
+  struct Node* current = head;
+  struct Node* next = NULL;
+  while(current!=NULL)
+  {
+    next = current-> next;
+    current -> next = prev;
+    prev = current;
+    current = next;
+  }
+  return prev;
 }
 
 int main()
@@ -57,6 +65,8 @@ int main()
    
     traversal(head);
     printf("\n");
+    head = reverse_list(head);
+    traversal(head);
 
    
     return 0;
