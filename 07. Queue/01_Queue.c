@@ -42,11 +42,13 @@ void enqueue(struct Node** front, struct Node** rear, int n)
         *rear = *front = temp;
     }
 
+    else{
     (*rear) -> next = temp;
     *rear = temp;
-
     printf("%d added to the queue\n", (*rear) -> data);
+    }
     return;
+
 }
 
 void dequeue(struct Node** front, struct Node** rear)
