@@ -42,6 +42,7 @@ void dfs(int node, int vertices)
     for (int i = 0; i < vertices; i++)
     {
         if (adj[node][i] && !visited[i])
+        
         {
             dfs(i, vertices);
         }
