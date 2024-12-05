@@ -76,6 +76,7 @@ struct Node* delete_node(struct Node* root, int n)
             free(root);
             return temp;
         }
+        
         struct Node* temp = min(root->right);
         root->data = temp->data;
         root->right = delete_node(root->right, temp->data);
