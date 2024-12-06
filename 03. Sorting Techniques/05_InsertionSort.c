@@ -22,10 +22,11 @@ int main()
 {
     int arr[6] = {5,2,8,9,10,5};
     int* ptr = arr;
-    insertionSort(ptr ,6 );
+    insertionSort(ptr ,6);
 
     for(int i = 0 ; i<6;i++)
     {
         printf("%d ", arr[i]);
     }
+    return 0;
 }

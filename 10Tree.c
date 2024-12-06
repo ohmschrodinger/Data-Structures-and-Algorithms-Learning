@@ -200,3 +200,52 @@ int main()
     // printf("Minm: %d\n", search_minimum(root));
     printf("No of nodes: %d\n", count_nodes(root));
 }
+
+
+
+#include <stdio.h>
+#include<stdlib.h>
+
+struct node{
+    char data[50];
+    struct node *next;
+};
+struct node *head,*tail=NULL;
+
+void addNode(char data2[]){
+    struct node *newNode=(struct node *)malloc(sizeof(struct node));
+    for(int i=0;data2[i]!='\0';i++)
+          newNode->data[i]=data2[i];
+      newNode->next=NULL;
+    newNode->next=NULL;
+    if (head==NULL){
+        head=newNode;
+        tail=newNode;
+    }
+    else{
+        tail->next=newNode;
+        tail=newNode;
+    }
+}
+void display(){
+    struct node *current=head;
+    if(head==NULL){
+        printf("list is empty\n");
+        return;
+    }
+    printf("Node of singly linked list(string)\n");
+    while(current!=NULL){
+        printf("%s ",current->data);
+        current=current->next;
+        
+    }
+    printf("\n");
+}
+int main() {
+    char a[]="apple",b[]="banana",c[]="carrot";
+    addNode(a);
+    addNode(b);
+    addNode(c);
+    display();
+    return 0;
+}
